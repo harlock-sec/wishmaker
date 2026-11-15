@@ -1,0 +1,152 @@
+[
+  {
+    "n": "Solar",
+    "g": "☀",
+    "c": "#FFB627",
+    "q": [
+      "I generally expect things to work out well in the end.",
+      "I think the world is getting worse.~",
+      "Most people are basically good.",
+      "I’m happy with who I am.",
+      "I look forward to the future more than I dread it.",
+      "I have a warm relationship with my family.",
+      "When something goes wrong, I expect more to go wrong.~",
+      "I think society is basically functional and okay.",
+      "I wake up in a good mood most days.",
+      "I often feel I’m not good enough.~",
+      "I enjoy spending time with my family."
+    ]
+  },
+  {
+    "n": "Mars",
+    "g": "♂",
+    "c": "#E4572E",
+    "q": [
+      "I like to win, even at casual games.",
+      "I push myself to be among the best at what I do.",
+      "It bothers me to do a mediocre job.",
+      "Competition brings out my best.",
+      "I keep track of how I compare to my peers.",
+      "I don’t care much about who’s best at what.~",
+      "I set ambitious goals and measure my progress.",
+      "“Good enough” is usually good enough for me.~",
+      "I get frustrated when I lose.",
+      "I practice or train deliberately to improve at my hobbies.",
+      "I’d enjoy a partner who challenges me competitively.",
+      "Recognition for my achievements matters to me."
+    ]
+  },
+  {
+    "n": "Mercury",
+    "g": "☿",
+    "c": "#6FB7C7",
+    "q": [
+      "I regularly learn things purely out of curiosity.",
+      "I enjoy understanding how and why things work.",
+      "I seek out books, podcasts, or documentaries that deepen my understanding.",
+      "I enjoy long conversations about ideas.",
+      "I think about how my background shapes the way I see the world.",
+      "I change my mind when presented with good evidence.",
+      "I’m not very curious about topics outside my daily life.~",
+      "I often fall down research rabbit holes.",
+      "I’d rather not think too hard about big questions.~",
+      "I try to understand perspectives very different from mine.",
+      "I like being intellectually challenged by a partner."
+    ]
+  },
+  {
+    "n": "Jupiter",
+    "g": "♃",
+    "c": "#D9A066",
+    "q": [
+      "I feel my life is heading in the right direction.",
+      "I have a clear idea of what I want to be doing in five years.",
+      "I feel a sense of purpose.",
+      "My work or daily life matches what I feel called to do.",
+      "I feel stuck.~",
+      "I’m confident I can handle whatever comes my way.",
+      "I trust my own decisions.",
+      "I often second-guess major life choices.~",
+      "I feel like I have momentum right now.",
+      "I feel behind where I “should” be in life.~",
+      "I know what matters most to me.",
+      "I’d stick to my path even if people close to me disapproved."
+    ]
+  },
+  {
+    "n": "Lunar",
+    "g": "☾",
+    "c": "#CFC9E8",
+    "q": [
+      "Music is a big part of my daily life.",
+      "I regularly make something (art, music, writing, cooking, crafts, etc.).",
+      "I seek out museums, galleries, concerts, or live performances.",
+      "I notice beauty in ordinary things.",
+      "I’m not really drawn to art or music.~",
+      "It matters to me that my space is aesthetically considered.",
+      "I express myself through style, design, or craft.",
+      "Art or music can move me emotionally.",
+      "I’d love a partner who creates things.",
+      "I come up with imaginative solutions and ideas.",
+      "I daydream or imagine a lot.",
+      "Creativity plays little role in how I spend my free time.~"
+    ]
+  },
+  {
+    "n": "Whimsy",
+    "g": "✦",
+    "c": "#F28AB2",
+    "q": [
+      "I rarely sweat the small stuff.",
+      "I’m happy to change plans at the last minute.",
+      "Minor inconveniences can ruin my day.~",
+      "I enjoy spontaneity.",
+      "I care a lot about small details being “right.”~",
+      "I don’t take myself too seriously.",
+      "I’d rather go with the flow than plan ahead.",
+      "I can laugh off embarrassing moments.",
+      "I often do silly things just for fun.",
+      "I worry about what others think of me.~",
+      "I get upset when trivial things aren’t done my way.~",
+      "Life’s too short to worry about most things."
+    ]
+  },
+  {
+    "n": "Saturn",
+    "g": "♄",
+    "c": "#C9B37E",
+    "q": [
+      "I say what I think even when it’s uncomfortable.",
+      "I’d rather hear a hard truth than a comforting lie.",
+      "I make decisions based on facts, not hopes.",
+      "People would describe me as blunt.",
+      "I soften or hold back opinions to avoid conflict.~",
+      "I plan for worst-case scenarios.",
+      "People are better off facing reality than being reassured.",
+      "I consider practicalities (money, logistics) before romantic ideas.",
+      "I give honest feedback to people I love, even when it stings.",
+      "Hope is not a plan.",
+      "I tend to see things as they are rather than as they could be.",
+      "White lies are fine if they keep things pleasant.~"
+    ]
+  },
+  {
+    "n": "Selflessness",
+    "g": "♡",
+    "c": "#F06C8A",
+    "q": [
+      "I’d relocate for my partner’s career.",
+      "I put my partner’s needs before my own.",
+      "I give things up to keep the peace.",
+      "I’d rather compromise than win an argument.",
+      "I find it hard to sacrifice my own plans for someone else.~",
+      "I’d change my daily routines for a partner.",
+      "I feel fulfilled when I’m taking care of someone.",
+      "I keep mental score of what I give versus what I get.~",
+      "When we disagree on small choices, I usually defer.",
+      "I’d pause my own goals to support my partner’s.",
+      "My alone time is non-negotiable.~",
+      "I take on extra burdens without being asked."
+    ]
+  }
+]
