@@ -7,10 +7,10 @@ type Answers = Record<number, number>[]
 const MIN = 2
 const LABELS = ['Strongly disagree', 'Disagree', 'Neutral', 'Agree', 'Strongly agree']
 const PEOPLE = [
-  { name: 'Maya', scores: [80, 45, 85, 70, 90, 60, 40, 65] },
-  { name: 'Jordan', scores: [60, 90, 50, 80, 30, 35, 85, 40] },
-  { name: 'Sam', scores: [70, 55, 75, 60, 70, 80, 55, 75] },
-  { name: 'Riley', scores: [35, 70, 60, 40, 55, 45, 90, 30] },
+  { name: 'Maya', scores: [75, 70, 80, 90, 45, 85, 70, 60, 40, 65] },
+  { name: 'Jordan', scores: [55, 65, 60, 30, 90, 50, 80, 35, 85, 40] },
+  { name: 'Sam', scores: [80, 75, 70, 70, 55, 75, 60, 80, 55, 75] },
+  { name: 'Riley', scores: [40, 45, 35, 55, 70, 60, 40, 45, 90, 30] },
 ]
 const point = (index: number, value: number, total: number): [number, number] => {
   const angle = Math.PI * 2 * index / total - Math.PI / 2
@@ -103,7 +103,7 @@ export default function Questionnaire() {
           <section className="wm-quiz-panel wm-quiz-results">
             <h2>Match preview // demo</h2>
             <p className="wm-quiz-muted">A local demonstration using fictional profiles. No blockchain transaction or real match is created.</p>
-            <svg className="wm-quiz-chart" viewBox="0 0 340 320" role="img" aria-label="Radar chart of eight prototype category scores">
+            <svg className="wm-quiz-chart" viewBox="0 0 340 320" role="img" aria-label="Radar chart of ten prototype category scores">
               {[25, 50, 75, 100].map(level => <polygon key={level} points={polygon(categories.map(() => level))} fill="none" stroke="#493254" />)}
               {categories.map((c, i) => { const [x, y] = point(i, 100, categories.length); return <line key={c.n} x1="170" y1="160" x2={x} y2={y} stroke="#493254" /> })}
               <polygon points={polygon(scores)} fill="#f054e5" fillOpacity=".22" stroke="#f054e5" strokeWidth="2.5" />

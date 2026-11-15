@@ -1,5 +1,41 @@
 [
   {
+    "n": "IMOK",
+    "g": "✧",
+    "c": "#9C7CFF",
+    "q": [
+      "I generally expect things to work out well in the end.",
+      "I think the world is getting worse.~",
+      "Most people are basically good.",
+      "I’m happy with who I am.",
+      "I look forward to the future more than I dread it.",
+      "I have a warm relationship with my family.",
+      "When something goes wrong, I expect more to go wrong.~",
+      "I think society is basically functional and okay.",
+      "I wake up in a good mood most days.",
+      "I often feel I’m not good enough.~",
+      "I enjoy spending time with my family."
+    ]
+  },
+  {
+    "n": "UROK",
+    "g": "✦",
+    "c": "#63D6CB",
+    "q": [
+      "I generally expect things to work out well in the end.",
+      "I think the world is getting worse.~",
+      "Most people are basically good.",
+      "I’m happy with who I am.",
+      "I look forward to the future more than I dread it.",
+      "I have a warm relationship with my family.",
+      "When something goes wrong, I expect more to go wrong.~",
+      "I think society is basically functional and okay.",
+      "I wake up in a good mood most days.",
+      "I often feel I’m not good enough.~",
+      "I enjoy spending time with my family."
+    ]
+  },
+  {
     "n": "Solar",
     "g": "☀",
     "c": "#FFB627",
@@ -15,6 +51,25 @@
       "I wake up in a good mood most days.",
       "I often feel I’m not good enough.~",
       "I enjoy spending time with my family."
+    ]
+  },
+  {
+    "n": "Lunar",
+    "g": "☾",
+    "c": "#CFC9E8",
+    "q": [
+      "Music is a big part of my daily life.",
+      "I regularly make something (art, music, writing, cooking, crafts, etc.).",
+      "I seek out museums, galleries, concerts, or live performances.",
+      "I notice beauty in ordinary things.",
+      "I’m not really drawn to art or music.~",
+      "It matters to me that my space is aesthetically considered.",
+      "I express myself through style, design, or craft.",
+      "Art or music can move me emotionally.",
+      "I’d love a partner who creates things.",
+      "I come up with imaginative solutions and ideas.",
+      "I daydream or imagine a lot.",
+      "Creativity plays little role in how I spend my free time.~"
     ]
   },
   {
@@ -74,26 +129,7 @@
     ]
   },
   {
-    "n": "Lunar",
-    "g": "☾",
-    "c": "#CFC9E8",
-    "q": [
-      "Music is a big part of my daily life.",
-      "I regularly make something (art, music, writing, cooking, crafts, etc.).",
-      "I seek out museums, galleries, concerts, or live performances.",
-      "I notice beauty in ordinary things.",
-      "I’m not really drawn to art or music.~",
-      "It matters to me that my space is aesthetically considered.",
-      "I express myself through style, design, or craft.",
-      "Art or music can move me emotionally.",
-      "I’d love a partner who creates things.",
-      "I come up with imaginative solutions and ideas.",
-      "I daydream or imagine a lot.",
-      "Creativity plays little role in how I spend my free time.~"
-    ]
-  },
-  {
-    "n": "Whimsy",
+    "n": "Venus",
     "g": "✦",
     "c": "#F28AB2",
     "q": [
