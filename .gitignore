@@ -1,0 +1,15 @@
+# Secrets
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# Foundry
+/cache/
+/out/
+/broadcast/
+
+# Node.js (for later)
+/node_modules/
+/dist/
