@@ -1,5 +1,6 @@
 import { Routes, Route, Link } from 'react-router-dom'
 import Questionnaire from './components/Questionnaire'
+import WalletConnect from './components/WalletConnect'
 import './App.css'
 import skyline from './assets/skyline.png'
 
@@ -28,7 +29,7 @@ function HomePage() {
           <a href="#features">[ messages ]</a>
           <a href="#identity">[ identity ]</a>
         </nav>
-        <button className="wallet" type="button" disabled title="Wallet connection coming soon">[ connect wallet ]</button>
+        <WalletConnect />
       </header>
 
       <main id="home">
