@@ -1,0 +1,4 @@
+import { Link } from 'react-router-dom'
+import './Extras.css'
+const people=[{name:'Maya',desc:'Creative, curious, and optimistic',pct:88},{name:'Sam',desc:'Thoughtful, kind, and imaginative',pct:82},{name:'Jordan',desc:'Driven and adventurous',pct:76}]
+export default function Discover(){return <div className="wm-extra"><header><Link to="/">← WISHMAKER_</Link><span>[ DISCOVER ]</span></header><main><h1>Discover connections</h1><p className="wm-warning">DEMO PREVIEW — These are fictional profiles and example percentages, not live user matches.</p><p>Complete your questionnaire and save scores to Monad to establish your on-chain personality profile.</p><div className="wm-people">{people.map(p=><article key={p.name}><h2>{p.name}</h2><p>{p.desc}</p><strong>{p.pct}% example compatibility</strong></article>)}</div><Link to="/questionnaire">[ take questionnaire ]</Link></main></div>}

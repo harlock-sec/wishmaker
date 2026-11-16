@@ -1,10 +1,21 @@
 import { useState, type CSSProperties } from 'react'
 import { Link } from 'react-router-dom'
+import { BrowserProvider, Contract } from 'ethers'
 import categories from './questionnaireData.json'
 import './Questionnaire.css'
 
 type Answers = Record<number, number>[]
 const MIN = 2
+const CONTRACT_ADDRESS = '0xDaC80f0b8C396eAe2024Bc112BF1D82b7a1226CE'
+const ABI = [
+  'function hasIdentity(address) view returns (bool)',
+  'function updateQuotients(int16[10])',
+  'function getProfile(address) view returns (uint256, int16[10], uint256)',
+]
+const MONAD_CHAIN_ID = '0x279f'
+// The current questionnaire yields 0–100; encode it as -100..100 for int16[10].
+const toOnChainScores = (scores: number[]) => scores.map(score => (score - 50) * 2)
+
 const LABELS = ['Strongly disagree', 'Disagree', 'Neutral', 'Agree', 'Strongly agree']
 const PEOPLE = [
   { name: 'Maya', scores: [75, 70, 80, 90, 45, 85, 70, 60, 40, 65] },
@@ -23,6 +34,9 @@ export default function Questionnaire() {
   const [current, setCurrent] = useState(0)
   const [answers, setAnswers] = useState<Answers>(() => categories.map(() => ({})))
   const [showResults, setShowResults] = useState(false)
+  const [saving, setSaving] = useState(false)
+  const [saveStatus, setSaveStatus] = useState('')
+  const [txHash, setTxHash] = useState('')
   const category = categories[current]
   const count = Object.keys(answers[current]).length
   const complete = answers.every(a => Object.keys(a).length >= MIN)
@@ -39,6 +53,55 @@ export default function Questionnaire() {
     name: p.name,
     percentage: Math.round(100 - scores.reduce((sum, s, i) => sum + Math.abs(s - p.scores[i]), 0) / scores.length),
   })).sort((a, b) => b.percentage - a.percentage).slice(0, 3)
+  const saveOnChain = async () => {
+    if (!complete || saving) return
+    setSaveStatus('')
+    setTxHash('')
+    if (!window.ethereum) {
+      setSaveStatus('MetaMask is required. Install or enable MetaMask first.')
+      return
+    }
+    setSaving(true)
+    try {
+      const chain = await window.ethereum.request({ method: 'eth_chainId' })
+      if (chain !== MONAD_CHAIN_ID) {
+        try {
+          await window.ethereum.request({ method: 'wallet_switchEthereumChain', params: [{ chainId: MONAD_CHAIN_ID }] })
+        } catch (error: unknown) {
+          if ((error as { code?: number }).code !== 4902) throw error
+          await window.ethereum.request({ method: 'wallet_addEthereumChain', params: [{
+            chainId: MONAD_CHAIN_ID,
+            chainName: 'Monad Testnet',
+            nativeCurrency: { name: 'Monad', symbol: 'MON', decimals: 18 },
+            rpcUrls: ['https://testnet-rpc.monad.xyz'],
+            blockExplorerUrls: ['https://testnet.monadexplorer.com'],
+          }] })
+          await window.ethereum.request({ method: 'wallet_switchEthereumChain', params: [{ chainId: MONAD_CHAIN_ID }] })
+        }
+      }
+      await window.ethereum.request({ method: 'eth_requestAccounts' })
+      const provider = new BrowserProvider(window.ethereum)
+      const signer = await provider.getSigner()
+      const wallet = await signer.getAddress()
+      const contract = new Contract(CONTRACT_ADDRESS, ABI, signer)
+      if (!(await contract.hasIdentity(wallet))) {
+        setSaveStatus('No Wishmaker identity found. Return to the homepage and mint your identity first.')
+        return
+      }
+      if (scores.length !== 10) throw new Error('Expected exactly ten scores')
+      setSaveStatus('Confirm score submission in MetaMask…')
+      const tx = await contract.updateQuotients(toOnChainScores(scores))
+      setTxHash(tx.hash)
+      setSaveStatus('Transaction submitted. Waiting for confirmation…')
+      const receipt = await tx.wait()
+      if (!receipt || receipt.status !== 1) throw new Error('Transaction did not succeed')
+      setSaveStatus('Success! Your ten quotient scores are stored on Monad Testnet.')
+    } catch (error: unknown) {
+      setSaveStatus(error instanceof Error ? error.message : String(error))
+    } finally {
+      setSaving(false)
+    }
+  }
   const go = (next: number) => {
     if (next < 0 || next >= categories.length) return
     setCurrent(next)
@@ -111,6 +174,15 @@ export default function Questionnaire() {
             </svg>
             <ul className="wm-quiz-legend">{categories.map((c, i) => <li key={c.n}><span>{c.g} {c.n}</span><b>{scores[i]}</b></li>)}</ul>
             {matches.map(m => <div className="wm-quiz-match" key={m.name}><h3>{m.name}</h3><strong>{m.percentage}%</strong></div>)}
+            <div className="wm-chain-save">
+              <p>Save your ten personality scores to your Wishmaker identity on Monad Testnet.</p>
+              <p>On-chain signed scores (−100 to +100): {toOnChainScores(scores).join(', ')}</p>
+              <button type="button" className="wm-quiz-edit" disabled={saving} onClick={saveOnChain}>
+                {saving ? 'Saving to Monad…' : 'Save scores to Monad'}
+              </button>
+              {saveStatus && <p role="status">{saveStatus}</p>}
+              {txHash && <p><a href={`https://testnet.monadexplorer.com/tx/${txHash}`} target="_blank" rel="noreferrer">View transaction on explorer</a></p>}
+            </div>
             <button className="wm-quiz-edit" onClick={() => setShowResults(false)}>Edit my answers</button>
           </section>
         )}

@@ -1,14 +1,17 @@
 import { Routes, Route, Link } from 'react-router-dom'
 import Questionnaire from './components/Questionnaire'
 import WalletConnect from './components/WalletConnect'
+import Identity from './components/Identity'
+import Discover from './components/Discover'
+import Messages from './components/Messages'
 import './App.css'
 import skyline from './assets/skyline.png'
 
 const steps = [
-  ['Create an account', 'Set up your Wishmaker profile'],
-  ['Connect your wallet', 'Link a Monad wallet and mint your identity'],
+  ['Connect MetaMask', 'Link your Monad Testnet wallet'],
+  ['Mint your identity', 'Create your soulbound on-chain ID'],
   ['Take the personality questionnaire', 'Define your ten personality quotients'],
-  ['Discover your matches', 'Meet people who complement your constellation'],
+  ['Explore match preview', 'See fictional compatibility examples'],
 ]
 
 const features = [
@@ -25,9 +28,9 @@ function HomePage() {
         <a className="logo" href="#home"><span className="logo-star" aria-hidden="true">✳</span>Wishmaker_</a>
         <nav aria-label="Main navigation">
           <a className="selected" href="#home">[ home ]</a>
-          <a href="#features">[ discover ]</a>
-          <a href="#features">[ messages ]</a>
-          <a href="#identity">[ identity ]</a>
+          <Link to="/discover">[ discover ]</Link>
+          <Link to="/messages">[ messages ]</Link>
+          <Link to="/identity">[ identity ]</Link>
         </nav>
         <WalletConnect />
       </header>
@@ -67,6 +70,9 @@ function App() {
     <Routes>
       <Route path="/" element={<HomePage />} />
       <Route path="/questionnaire" element={<Questionnaire />} />
+      <Route path="/identity" element={<Identity />} />
+      <Route path="/discover" element={<Discover />} />
+      <Route path="/messages" element={<Messages />} />
       <Route path="*" element={<HomePage />} />
     </Routes>
   )

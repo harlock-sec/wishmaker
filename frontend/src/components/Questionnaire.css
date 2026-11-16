@@ -49,3 +49,7 @@
 .wm-quiz-footer{max-width:1100px;margin:0 auto 24px;border-top:1px solid #573266;padding:16px 24px;color:#9d83af;font-size:.7rem;letter-spacing:.12em;display:flex;justify-content:space-between;gap:10px}
 @media(max-width:520px){.wm-quiz-header{padding:16px}.wm-quiz-header-right{font-size:.62rem}.wm-quiz-masthead{min-height:115px}.wm-quiz-footer{display:block;text-align:center}.wm-quiz-request{left:18px;right:18px}.wm-quiz-stage{height:155px}.wm-quiz-ring{top:calc(77px + var(--R))}}
 @media(prefers-reduced-motion:reduce){.wm-quiz-ring,.wm-quiz-planet{transition:none}}
+
+.wm-chain-save { margin: 24px 0; padding: 18px; border: 1px solid #a455ae; background: #241331; color: #f5eaff; overflow-wrap: anywhere; }
+.wm-chain-save a { color: #ff9ae8; }
+.wm-chain-save button:disabled { opacity: .55; cursor: wait; }
